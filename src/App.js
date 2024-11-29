@@ -1,6 +1,7 @@
 import './App.css';
 
 const API_KEY = ""
+// http://www.omdbapi.com/?apikey=[yourkey]&
 
 function App() {
   return (
