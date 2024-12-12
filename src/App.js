@@ -1,7 +1,7 @@
 import './App.css';
 import SearchMovie from "./components/SearchMovie/SearchMovie";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <SearchMovie />
