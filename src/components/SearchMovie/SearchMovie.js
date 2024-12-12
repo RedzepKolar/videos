@@ -7,8 +7,7 @@ const SearchMovie = () => {
     const [error, setError] = useState(null);
     const [title, setTitle] = useState("");
 
-    const handleSearchMovie = async (e) => {
-        e.preventDefault();
+    const handleSearchMovieByTitle = async (e) => {
         setError(null);
 
         if(title.trim() === "") {
@@ -35,7 +34,7 @@ const SearchMovie = () => {
     return (
         <>
         <input value={title} type="text" onChange={e => setTitle(e.target.value)} placeholder="Search title movie..." />
-            <button onClick={handleSearchMovie} disabled={isLoading}>{isLoading ? "Loading..." : "Search movie"}</button>
+            <button type="button" onClick={handleSearchMovieByTitle} disabled={isLoading}>{isLoading ? "Loading..." : "Search movie"}</button>
             {error && <p style={{ color: "red"}}>{error}</p>}
         </>
     )
