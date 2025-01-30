@@ -1,13 +1,17 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {fetchMovie} from "../../services/omdbApi";
+import MovieCard from "../Templates/Snippets/MovieCard";
 
 const SearchMovie = () => {
+
+    // console.log(fetchMovie('lord of the rings'))
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [title, setTitle] = useState("");
+    const [movieData, setMovieData] = useState({});
 
-    const handleSearchMovieByTitle = async (e) => {
+    const handleSearchMovieByTitle = async () => {
         setError(null);
 
         if(title.trim() === "") {
@@ -21,8 +25,10 @@ const SearchMovie = () => {
 
         setIsLoading(true);
         try {
-           await fetchMovie(title);
+          const data = await fetchMovie(title);
+            setMovieData(data)
             setTitle("");
+
 
         } catch (e) {
             console.log(e);
@@ -31,11 +37,21 @@ const SearchMovie = () => {
         }
     }
 
+    // useEffect(() => {
+    //     handleSearchMovieByTitle()
+    // }, []);
+
     return (
         <>
-        <input value={title} type="text" onChange={e => setTitle(e.target.value)} placeholder="Search title movie..." />
-            <button type="button" onClick={handleSearchMovieByTitle} disabled={isLoading}>{isLoading ? "Loading..." : "Search movie"}</button>
-            {error && <p style={{ color: "red"}}>{error}</p>}
+            <input value={title} type="text" onChange={e => setTitle(e.target.value)}
+                   placeholder="Search title movie..."/>
+            <button type="button" onClick={handleSearchMovieByTitle}
+                    disabled={isLoading}>{isLoading ? "Loading..." : "Search movie"}</button>
+            {error && <p style={{color: "red"}}>{error}</p>}
+            <div>
+                <MovieCard data={movieData}/>
+            </div>
+
         </>
     )
 }
