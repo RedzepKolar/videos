@@ -25,7 +25,7 @@ const SearchMovie = () => {
 
         setIsLoading(true);
         try {
-          const data = await fetchMovie(title);
+          const data = await fetchMovie("t",title);
             setMovieData(data)
             setTitle("");
 

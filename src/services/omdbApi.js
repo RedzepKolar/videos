@@ -4,10 +4,10 @@ const api = axios.create({
     baseURL: process.env.REACT_APP_OMDBAPI_URL,
 });
 
-export const fetchMovie = async (title) => {
+export const fetchMovie = async (param,title) => {
     try {
-        const response = await api.get(`?t=${title}&apikey=${process.env.REACT_APP_OMDBAPI_KEY}`);
-        console.log(response.data)
+        const response = await api.get(`?${param}=${title}&apikey=${process.env.REACT_APP_OMDBAPI_KEY}`);
+
         return response.data;
     } catch (error) {
         console.log("Error fetching movie title", error);

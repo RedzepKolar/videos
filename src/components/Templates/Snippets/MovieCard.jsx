@@ -1,10 +1,9 @@
 const MovieCard= ({movie})  => {
-
     return (
-        <div>
-            <img src={movie.Poster}/>
-            <h1>{movie.Title}</h1>
-            <p>{movie.Plot}</p>
+        <div className="col-3 text-white col-4 p-2">
+            <img className="w-80" src={movie.Poster}/>
+            <h3>{movie.Title}</h3>
+            <p>{movie.Year}</p>
         </div>
     );
 }
