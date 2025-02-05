@@ -4,7 +4,7 @@ import MovieCard from "../Templates/Snippets/MovieCard";
 
 const SearchMovie = () => {
 
-    // console.log(fetchMovie('lord of the rings'))
+
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -49,7 +49,7 @@ const SearchMovie = () => {
                     disabled={isLoading}>{isLoading ? "Loading..." : "Search movie"}</button>
             {error && <p style={{color: "red"}}>{error}</p>}
             <div>
-                <MovieCard data={movieData}/>
+                <MovieCard movie={movieData}/>
             </div>
 
         </>
