@@ -1,3 +1,4 @@
+// import './App.css';
 import SearchMovie from "./components/SearchMovie/SearchMovie";
 import Navigation from "./components/Templates/Snippets/Navigation";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +10,7 @@ const App = () => {
     <div className="App">
         <Navigation />
         <Search />
-      <SearchMovie />
+      {/*<SearchMovie />*/}
         <Footer />
     </div>
   );
